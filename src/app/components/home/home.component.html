@@ -1,0 +1,25 @@
+<div class="row">
+  <h3 class="text-center">Pokemon List</h3>
+
+  <table class="table table-dark table-hover text-center align-content-center">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>type</th>
+        <th>Imagem</th>
+      </tr>
+    </thead>
+    <tr>  </tr>
+    <tbody>
+      <tr *ngFor="let item of pokemonList | paginate: { itemsPerPage: 5, currentPage: paginaAtual}">
+        <td>{{item.id}}</td>
+        <td>{{item.name | uppercase}}</td>
+        <td>{{item.type.name}}</td>
+        <td> <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{item.id}}.png"/> </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls class="text-center"  (pageChange)="paginaAtual = $event"></pagination-controls>
+
+</div>
